@@ -31,6 +31,11 @@ public class UserControllers {
         return this.userService.getById(id);
     }
 
+    @PostMapping(path = "/authenticate")
+    public boolean authenticateUser(@RequestBody User user){
+        return userService.authenticateUser(user);
+    }
+
     @DeleteMapping(path = "/{id}")
     public String deleteById(@PathVariable("id") Integer id){
         boolean ok = this.userService.deleteUser(id);

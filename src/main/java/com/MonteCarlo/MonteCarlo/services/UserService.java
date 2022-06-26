@@ -26,6 +26,19 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public boolean authenticateUser(User user){
+        boolean authentication=false;
+
+        for (User usr: getUsers()){
+            if(usr.getName().equals(user.getName())){
+                authentication=true;
+                break;
+            }
+        }
+        return authentication;
+
+    }
+
     // TryCatch in case ID doesn't exist
     public boolean deleteUser(Integer id){
         try{
